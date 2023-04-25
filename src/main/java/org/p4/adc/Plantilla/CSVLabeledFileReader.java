@@ -1,8 +1,7 @@
-package org.p3.adc.Plantilla;
+package org.p4.adc.Plantilla;
 
-import org.p3.adc.Constructores.RowWithLabel;
-import org.p3.adc.Constructores.Table;
-import org.p3.adc.Constructores.TableWithLabels;
+import org.p4.adc.Constructores.RowWithLabel;
+import org.p4.adc.Constructores.TableWithLabels;
 
 public class CSVLabeledFileReader extends CSVUnlabeledFileReader{
     private TableWithLabels tabla;

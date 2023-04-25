@@ -1,9 +1,9 @@
-package org.p3.adc.Clases;
+package org.p4.adc.Clases;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.p3.adc.Constructores.Table;
-import org.p3.adc.Constructores.TableWithLabels;
+import org.p4.adc.Constructores.Table;
+import org.p4.adc.Constructores.TableWithLabels;
 
 import java.io.IOException;
 import java.util.ArrayList;

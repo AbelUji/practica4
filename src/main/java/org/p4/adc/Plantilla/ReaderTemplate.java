@@ -1,6 +1,6 @@
-package org.p3.adc.Plantilla;
+package org.p4.adc.Plantilla;
 
-import org.p3.adc.Constructores.Table;
+import org.p4.adc.Constructores.Table;
 import java.io.FileNotFoundException;
 
 abstract class ReaderTemplate{

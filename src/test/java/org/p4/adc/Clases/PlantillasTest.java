@@ -1,10 +1,10 @@
-package org.p3.adc.Clases;
+package org.p4.adc.Clases;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.p3.adc.Constructores.TableWithLabels;
-import org.p3.adc.Patrones.EuclideanDistance;
-import org.p3.adc.Patrones.ManhattanDistance;
+import org.p4.adc.Constructores.TableWithLabels;
+import org.p4.adc.Patrones.EuclideanDistance;
+import org.p4.adc.Patrones.ManhattanDistance;
 
 
 import java.io.FileNotFoundException;

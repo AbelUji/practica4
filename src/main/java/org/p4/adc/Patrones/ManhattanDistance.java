@@ -1,6 +1,6 @@
-package org.p3.adc.Patrones;
+package org.p4.adc.Patrones;
 
-import org.p3.adc.Interfaces.Distance;
+import org.p4.adc.Interfaces.Distance;
 
 import java.util.List;
 

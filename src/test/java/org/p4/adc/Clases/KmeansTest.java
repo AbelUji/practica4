@@ -1,10 +1,10 @@
-package org.p3.adc.Clases;
+package org.p4.adc.Clases;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.p3.adc.Constructores.Table;
-import org.p3.adc.Excepciones.ClusterException;
-import org.p3.adc.Patrones.EuclideanDistance;
+import org.p4.adc.Constructores.Table;
+import org.p4.adc.Excepciones.ClusterException;
+import org.p4.adc.Patrones.EuclideanDistance;
 
 
 import java.io.FileNotFoundException;

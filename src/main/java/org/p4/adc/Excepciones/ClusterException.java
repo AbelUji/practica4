@@ -1,4 +1,4 @@
-package org.p3.adc.Excepciones;
+package org.p4.adc.Excepciones;
 
 public class ClusterException extends Exception{
     public ClusterException(){

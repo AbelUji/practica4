@@ -1,9 +1,9 @@
-package org.p3.adc.Clases;
+package org.p4.adc.Clases;
 
 
-import org.p3.adc.Constructores.Table;
-import org.p3.adc.Interfaces.Algorithm;
-import org.p3.adc.Patrones.EuclideanDistance;
+import org.p4.adc.Constructores.Table;
+import org.p4.adc.Interfaces.Algorithm;
+import org.p4.adc.Patrones.EuclideanDistance;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
