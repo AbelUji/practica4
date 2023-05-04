@@ -1,20 +1,15 @@
 package org.p4.adc.Graficos.Vista;
 
-import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import jdk.jfr.Event;
+import javafx.stage.StageStyle;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -35,6 +30,7 @@ public class ImplementacionVista implements Vista{
         root = new StackPane();
     }
 
+    @Override
     public void prepararStage(){
         stage.setTitle("Song Recommender");
         stage.setScene(new Scene(root, 400, 700));
@@ -43,17 +39,20 @@ public class ImplementacionVista implements Vista{
         Label label_rec_type = new Label("Recommendation Type");
         HBox hlabel_rec_type = new HBox(label_rec_type);
         hlabel_rec_type.setAlignment(Pos.BASELINE_LEFT);
-        hlabel_rec_type.setSpacing(5);
+        hlabel_rec_type.setStyle("-fx-font-size: 20px;" + "-fx-font-weight: bold;");
 
         ToggleGroup grupo = new ToggleGroup();
         rec_song_feature = new RadioButton("Recommended based on song features");
+        rec_song_feature.setStyle("-fx-font-size: 13px;");
         rec_guess_genre = new RadioButton("Recommended based on guessed genre");
+        rec_guess_genre.setStyle("-fx-font-size: 13px;");
 
         rec_song_feature.setToggleGroup(grupo);
         rec_guess_genre.setToggleGroup(grupo);
 
         VBox vRadio= new VBox(rec_song_feature, rec_guess_genre);
-        vRadio.setSpacing(3);
+        vRadio.setSpacing(5);
+        vRadio.setPadding(new Insets(7,0,0,4));
         rec_radio = new VBox(hlabel_rec_type, vRadio);
     }
 
@@ -61,7 +60,7 @@ public class ImplementacionVista implements Vista{
         Label label_dist_type = new Label("Distance Type");
         HBox hlabel_dist_type = new HBox(label_dist_type);
         hlabel_dist_type.setAlignment(Pos.BASELINE_LEFT);
-        hlabel_dist_type.setSpacing(5);
+        hlabel_dist_type.setStyle("-fx-font-size: 20px;"+ "-fx-font-weight: bold;");
 
         ToggleGroup grupo = new ToggleGroup();
         dist_euclid = new RadioButton("Euclidean");
@@ -91,11 +90,7 @@ public class ImplementacionVista implements Vista{
     }
 
     public void dobleClickLista(){
-        lista.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-
-            }
+        lista.setOnMouseClicked(mouseEvent -> {
         });
     }
 
@@ -114,33 +109,34 @@ public class ImplementacionVista implements Vista{
     public void crearBotonAceptar(){
         boton = new Button("Recommended");
 
-        boton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                comprobaciones();
+        boton.setOnAction(actionEvent -> {
+            if(comprobaciones()){
+
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Missing Information");
+                alert.setContentText("Some info is not selected. Please try again");
+
+                alert.showAndWait();
             }
         });
+        boton.setStyle("-fx-text-fill: rgb(49, 89, 23);" + "-fx-border-color: rgb(49, 89, 23);" + "-fx-border-radius: 5;\n" + "-fx-padding: 3 6 6 6;");
         bot_aceptar=new VBox(boton);
+        bot_aceptar.setAlignment(Pos.CENTER);
     }
 
     private boolean comprobaciones(){
-        if(!dist_euclid.isSelected() || !dist_manh.isSelected() || !rec_guess_genre.isSelected() || !rec_song_feature.isSelected() || lista.getSelectionModel().getSelectedIndex()==-1){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Look, an Information Dialog");
-            alert.setContentText("I have a great message for you!");
-
-            alert.showAndWait();
-        }
-        return false;
+        return (dist_euclid.isSelected() || dist_manh.isSelected()) && (rec_guess_genre.isSelected() || rec_song_feature.isSelected()) && lista.getSelectionModel().getSelectedIndex() != -1;
     }
 
+    @Override
     public void montarStage(){
         estruc_global = new VBox(rec_radio,dist_radio,lista_canciones,bot_aceptar);
         root.getChildren().add(estruc_global);
     }
 
-
+    @Override
     public void crearStage() throws IOException {
         prepararStage();
         crearRecType();

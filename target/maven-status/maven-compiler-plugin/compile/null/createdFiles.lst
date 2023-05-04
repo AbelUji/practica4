@@ -5,7 +5,6 @@ org\p4\adc\Clases\Kmeans.class
 org\p4\adc\Constructores\Row.class
 org\p4\adc\Interfaces\Algorithm.class
 org\p4\adc\Constructores\RowWithLabel.class
-org\p4\adc\Graficos\Vista\ImplementacionVista$1.class
 org\p4\adc\Constructores\Table.class
 org\p4\adc\Graficos\Modelo\Modelo.class
 org\p4\adc\Interfaces\DistanceClient.class
@@ -21,7 +20,7 @@ org\p4\adc\Constructores\TableWithLabels.class
 org\p4\adc\Excepciones\ClusterException.class
 org\p4\adc\Graficos\Controlador\ImplementacionControlador.class
 org\p4\adc\Interfaces\Distance.class
-org\p4\adc\Graficos\Vista\ImplementacionVista$2.class
+org\p4\adc\Graficos\Vista\ImplementacionVista2.class
 org\p4\adc\Graficos\Vista\Vista.class
 org\p4\adc\Plantilla\CSVLabeledFileReader.class
 org\p4\adc\Clases\RecSys.class
