@@ -21,6 +21,9 @@ public class Main extends Application {
         ImplementacionModelo modelo= new ImplementacionModelo();
         vista.setControlador(controlador);
         vista.setModelo(modelo);
+        modelo.setVista(vista);
+        controlador.setModelo(modelo);
+        controlador.setVista(vista);
         vista.crearStage();
     }
 }

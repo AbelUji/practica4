@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.p4.adc.Excepciones.ClusterException;
 import org.p4.adc.Graficos.Controlador.Controlador;
 import org.p4.adc.Graficos.Modelo.Modelo;
 import org.p4.adc.Interfaces.Distance;
@@ -26,7 +27,7 @@ public class ImplementacionVista implements Vista{
     private StackPane root;
     private Stage stage;
     private Button boton;
-    private ListView lista;
+    private ListView<String> lista;
     private RadioButton rec_song_feature, rec_guess_genre, dist_euclid, dist_manh;
     private Controlador controlador;
     private Modelo modelo;
@@ -122,7 +123,11 @@ public class ImplementacionVista implements Vista{
 
         boton.setOnAction(actionEvent -> {
             if(comprobaciones()){
-                controlador.abrirSegundaVentana("Hola",recomendacionElegida(),distanciaElegida());
+                try {
+                    controlador.abrirSegundaVentana(lista.getSelectionModel().getSelectedItem(),recomendacionElegida(),distanciaElegida());
+                } catch (IOException | ClusterException e) {
+                    throw new RuntimeException(e);
+                }
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Warning");

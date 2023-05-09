@@ -50,4 +50,9 @@ public class RecSys {
         }
         return -1;
     }
+
+    public int getTamano(String cancion){
+        int grupo=findName(cancion);
+        return this.grupos.get(grupo).size();
+    }
 }

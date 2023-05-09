@@ -1,8 +1,14 @@
 package org.p4.adc.Graficos.Controlador;
 
+import javafx.stage.Stage;
+import org.p4.adc.Excepciones.ClusterException;
 import org.p4.adc.Graficos.Modelo.Modelo;
+import org.p4.adc.Graficos.Vista.ImplementacionVista;
+import org.p4.adc.Graficos.Vista.ImplementacionVista2;
 import org.p4.adc.Graficos.Vista.Vista;
 import org.p4.adc.Interfaces.Distance;
+
+import java.io.IOException;
 
 public class ImplementacionControlador implements Controlador{
     private Vista vista;
@@ -18,11 +24,18 @@ public class ImplementacionControlador implements Controlador{
 
     }
 
-    public void setCancionesRecomendadas(){
-
+    @Override
+    public void setCancionesRecomendadas(String metodo, Distance distancia) throws ClusterException, IOException {
+        modelo.recSys(metodo,distancia);
     }
 
-    public void abrirSegundaVentana(String prueba,String algoritmo, Distance distancia){
-
+    @Override
+    public void abrirSegundaVentana(String cancion,String algoritmo, Distance distancia) throws IOException, ClusterException {
+        vista=new ImplementacionVista2(new Stage(),cancion,algoritmo,distancia);
+        vista.setModelo(modelo);
+        vista.setControlador(this);
+        modelo.setVista(vista);
+        this.setModelo(modelo);
+        vista.crearStage();
     }
 }
