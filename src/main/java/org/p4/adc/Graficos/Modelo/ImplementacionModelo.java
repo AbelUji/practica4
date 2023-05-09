@@ -31,7 +31,7 @@ public class ImplementacionModelo implements Modelo{
     @Override
     public void recSys(String method, Distance distancia) throws IOException, ClusterException {
         String sep = System.getProperty("file.separator");
-        String ruta = "src\\main\\resources\\files";
+        String ruta = "src/main/resources/files";
 
         // File names (could be provided as arguments to the constructor to be more general)
         Map<String,String> filenames = new HashMap<>();

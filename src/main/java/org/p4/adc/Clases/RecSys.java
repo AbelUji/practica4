@@ -1,5 +1,6 @@
 package org.p4.adc.Clases;
 
+import org.p4.adc.Constructores.Row;
 import org.p4.adc.Constructores.Table;
 import org.p4.adc.Excepciones.ClusterException;
 import org.p4.adc.Interfaces.Algorithm;
@@ -51,8 +52,9 @@ public class RecSys {
         return -1;
     }
 
-    public int getTamano(String cancion){
+    public int getGrupo(String cancion){
         int grupo=findName(cancion);
+        System.out.println(grupo);
         return this.grupos.get(grupo).size();
     }
 }

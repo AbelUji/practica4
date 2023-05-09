@@ -50,22 +50,16 @@ public class ImplementacionVista2 implements Vista{
 
     public void crearNumRec() throws ClusterException, IOException {
         controlador.setCancionesRecomendadas(algoritmoElegido,distanciaElegida);
-        Label label_rec_type = new Label("Number of recommendations (Maximo: "+" )");
+        Label label_rec_type = new Label("Number of recommendations (Maximo: "+modelo.getRecsys().getGrupo(cancionElegida)+" )");
 
 
         spinner = new Spinner<Integer>();
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, modelo.getRecsys().getTamano(cancionElegida),14);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, modelo.getRecsys().getGrupo(cancionElegida),14);
         spinner.setValueFactory(valueFactory);
 
         lista=new ListView<>(FXCollections.observableArrayList(modelo.getRecsys().recommend(cancionElegida, spinner.getValue())));
 
-        spinner.valueProperty().addListener(new ChangeListener<Integer>() {
-            @Override
-            public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
-                lista=new ListView<>(FXCollections.observableArrayList(modelo.getRecsys().recommend(cancionElegida, spinner.getValue())));
-
-            }
-        });
+        spinner.valueProperty().addListener(((observableValue, integer, t1) -> {lista.setItems(FXCollections.observableArrayList(modelo.getRecsys().recommend(cancionElegida, spinner.getValue())));}));
         vNumRec= new VBox(label_rec_type, spinner);
     }
 
@@ -84,9 +78,11 @@ public class ImplementacionVista2 implements Vista{
 
     @Override
     public void crearStage() throws IOException, ClusterException {
+        prepararStage();
         crearNumRec();
         recomendadas();
         montarStage();
+        stage.show();
     }
 
     @Override
@@ -96,6 +92,6 @@ public class ImplementacionVista2 implements Vista{
 
     @Override
     public void setModelo(Modelo modelo) {
-
+        this.modelo=modelo;
     }
 }
