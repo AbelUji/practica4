@@ -9,7 +9,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import org.p4.adc.Graficos.Controlador.Controlador;
+import org.p4.adc.Graficos.Modelo.Modelo;
+import org.p4.adc.Interfaces.Distance;
+import org.p4.adc.Patrones.EuclideanDistance;
+import org.p4.adc.Patrones.ManhattanDistance;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,6 +28,8 @@ public class ImplementacionVista implements Vista{
     private Button boton;
     private ListView lista;
     private RadioButton rec_song_feature, rec_guess_genre, dist_euclid, dist_manh;
+    private Controlador controlador;
+    private Modelo modelo;
 
     public ImplementacionVista(Stage stage){
         this.stage=stage;
@@ -39,6 +45,7 @@ public class ImplementacionVista implements Vista{
         Label label_rec_type = new Label("Recommendation Type");
         HBox hlabel_rec_type = new HBox(label_rec_type);
         hlabel_rec_type.setAlignment(Pos.BASELINE_LEFT);
+        hlabel_rec_type.setPadding(new Insets(2,0,0,4));
         hlabel_rec_type.setStyle("-fx-font-size: 20px;" + "-fx-font-weight: bold;");
 
         ToggleGroup grupo = new ToggleGroup();
@@ -60,6 +67,7 @@ public class ImplementacionVista implements Vista{
         Label label_dist_type = new Label("Distance Type");
         HBox hlabel_dist_type = new HBox(label_dist_type);
         hlabel_dist_type.setAlignment(Pos.BASELINE_LEFT);
+        hlabel_dist_type.setPadding(new Insets(2,0,0,4));
         hlabel_dist_type.setStyle("-fx-font-size: 20px;"+ "-fx-font-weight: bold;");
 
         ToggleGroup grupo = new ToggleGroup();
@@ -71,6 +79,7 @@ public class ImplementacionVista implements Vista{
 
         VBox vRadio= new VBox(dist_euclid, dist_manh);
         vRadio.setSpacing(3);
+        vRadio.setPadding(new Insets(7,0,0,4));
         dist_radio = new VBox(hlabel_dist_type, vRadio);
     }
 
@@ -78,7 +87,9 @@ public class ImplementacionVista implements Vista{
         Label label_title = new Label("Song Titles");
         HBox hlabel_title = new HBox(label_title);
         hlabel_title.setAlignment(Pos.BASELINE_LEFT);
-        hlabel_title.setSpacing(5);
+        hlabel_title.setPadding(new Insets(2,0,0,4));
+        hlabel_title.setStyle("-fx-font-size: 20px;"+ "-fx-font-weight: bold;");
+
 
         String sep = System.getProperty("file.separator");
         String ruta = "src\\main\\resources\\files";
@@ -86,7 +97,7 @@ public class ImplementacionVista implements Vista{
         lista.getSelectionModel().selectedItemProperty().addListener((item, valorInicial, valorActual) -> {
             boton.setText("Recommended on "+ valorActual);
         });
-        lista_canciones=new VBox(label_title,lista);
+        lista_canciones=new VBox(hlabel_title,lista);
     }
 
     public void dobleClickLista(){
@@ -111,7 +122,7 @@ public class ImplementacionVista implements Vista{
 
         boton.setOnAction(actionEvent -> {
             if(comprobaciones()){
-
+                controlador.abrirSegundaVentana("Hola",recomendacionElegida(),distanciaElegida());
             }else{
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Warning");
@@ -123,7 +134,25 @@ public class ImplementacionVista implements Vista{
         });
         boton.setStyle("-fx-text-fill: rgb(49, 89, 23);" + "-fx-border-color: rgb(49, 89, 23);" + "-fx-border-radius: 5;\n" + "-fx-padding: 3 6 6 6;");
         bot_aceptar=new VBox(boton);
+        bot_aceptar.setPadding(new Insets(10,0,0,0));
         bot_aceptar.setAlignment(Pos.CENTER);
+
+
+    }
+    private String recomendacionElegida(){
+        if (rec_song_feature.isSelected()){
+            return "knn";
+        }else{
+            return "kmeans";
+        }
+    }
+
+    private Distance distanciaElegida(){
+        if (dist_euclid.isSelected()){
+            return new EuclideanDistance();
+        }else{
+            return new ManhattanDistance();
+        }
     }
 
     private boolean comprobaciones(){
@@ -145,5 +174,15 @@ public class ImplementacionVista implements Vista{
         crearBotonAceptar();
         montarStage();
         stage.show();
+    }
+
+    @Override
+    public void setModelo(Modelo modelo){
+        this.modelo=modelo;
+    }
+
+    @Override
+    public void setControlador(Controlador controlador){
+        this.controlador=controlador;
     }
 }
