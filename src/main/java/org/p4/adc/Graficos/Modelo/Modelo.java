@@ -7,9 +7,11 @@ import org.p4.adc.Interfaces.Distance;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public interface Modelo {
     void setVista(Vista vista);
     void recSys(String method, Distance distancia) throws IOException, ClusterException;
     RecSys getRecsys();
+    List<String> anadirCanciones(String fichero) throws IOException;
 }

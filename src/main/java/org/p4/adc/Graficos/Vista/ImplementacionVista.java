@@ -1,12 +1,10 @@
 package org.p4.adc.Graficos.Vista;
 
 import javafx.collections.FXCollections;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -17,12 +15,7 @@ import org.p4.adc.Graficos.Modelo.Modelo;
 import org.p4.adc.Interfaces.Distance;
 import org.p4.adc.Patrones.EuclideanDistance;
 import org.p4.adc.Patrones.ManhattanDistance;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ImplementacionVista implements Vista{
     private VBox estruc_global, rec_radio, dist_radio, lista_canciones,bot_aceptar;
@@ -95,38 +88,20 @@ public class ImplementacionVista implements Vista{
 
 
         String sep = System.getProperty("file.separator");
-        String ruta = "src\\main\\resources\\files";
-        lista = new ListView<>(FXCollections.observableArrayList(anadirCanciones(ruta+sep+"songs_test_names.csv")));
+        String ruta = "src/main/resources/files";
+        lista = new ListView<>(FXCollections.observableArrayList(modelo.anadirCanciones(ruta+sep+"songs_test_names.csv")));
         lista.getSelectionModel().selectedItemProperty().addListener((item, valorInicial, valorActual) -> {
             boton.setText("Recommended on "+ valorActual);
         });
+
+        Tooltip tip=new Tooltip("Double click for recommendations based on this song");
+        Tooltip.install(lista,tip);
         lista_canciones=new VBox(hlabel_title,lista);
     }
 
     public void dobleClickLista(){
-       /* lista.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(comprobaciones() && mouseEvent.getClickCount()==2){
-                    System.out.println("Pataton");
-                    try {
-                        controlador.abrirSegundaVentana(lista.getSelectionModel().getSelectedItem(),recomendacionElegida(),distanciaElegida());
-                    } catch (IOException | ClusterException e) {
-                        throw new RuntimeException(e);
-                    }
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("Missing Information");
-                    alert.setContentText("Some info is not selected. Please try again");
-
-                    alert.showAndWait();
-                }
-            }
-        });*/
         lista.setOnMouseClicked(mouseEvent -> {
             if(comprobaciones() && mouseEvent.getClickCount()==2){
-                System.out.println("Pataton");
                 try {
                     controlador.abrirSegundaVentana(lista.getSelectionModel().getSelectedItem(),recomendacionElegida(),distanciaElegida());
                 } catch (IOException | ClusterException e) {
@@ -141,18 +116,6 @@ public class ImplementacionVista implements Vista{
                 alert.showAndWait();
             }
         });
-    }
-
-    private List<String> anadirCanciones(String fichero) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(fichero));
-        String line;
-        List<String> names = new ArrayList<>();
-
-        while ((line = br.readLine()) != null) {
-            names.add(line);
-        }
-        br.close();
-        return names;
     }
 
     public void crearBotonAceptar(){
@@ -178,8 +141,6 @@ public class ImplementacionVista implements Vista{
         bot_aceptar=new VBox(boton);
         bot_aceptar.setPadding(new Insets(10,0,0,0));
         bot_aceptar.setAlignment(Pos.CENTER);
-
-
     }
     private String recomendacionElegida(){
         if (rec_song_feature.isSelected()){

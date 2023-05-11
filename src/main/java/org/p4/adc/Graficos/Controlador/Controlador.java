@@ -5,12 +5,14 @@ import org.p4.adc.Graficos.Modelo.Modelo;
 import org.p4.adc.Graficos.Vista.Vista;
 import org.p4.adc.Interfaces.Distance;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 public interface Controlador {
     void setVista(Vista vista);
     void setModelo(Modelo modelo);
-
     void abrirSegundaVentana(String prueba,String algoritmo, Distance distancia) throws IOException, ClusterException;
     void setCancionesRecomendadas(String metodo, Distance distancia) throws ClusterException, IOException;
+
 }

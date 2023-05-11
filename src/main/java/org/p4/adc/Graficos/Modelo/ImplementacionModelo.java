@@ -9,10 +9,7 @@ import org.p4.adc.Excepciones.ClusterException;
 import org.p4.adc.Graficos.Vista.Vista;
 import org.p4.adc.Interfaces.Algorithm;
 import org.p4.adc.Interfaces.Distance;
-import org.p4.adc.Patrones.EuclideanDistance;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +60,7 @@ public class ImplementacionModelo implements Modelo{
         this.recsys.run(tables.get(method+"test"), names);
     }
 
-    private List<String> anadirCanciones(String fichero) throws IOException {
+    public List<String> anadirCanciones(String fichero) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fichero));
         String line;
         List<String> names = new ArrayList<>();

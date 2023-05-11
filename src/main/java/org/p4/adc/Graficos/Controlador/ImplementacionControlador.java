@@ -3,11 +3,9 @@ package org.p4.adc.Graficos.Controlador;
 import javafx.stage.Stage;
 import org.p4.adc.Excepciones.ClusterException;
 import org.p4.adc.Graficos.Modelo.Modelo;
-import org.p4.adc.Graficos.Vista.ImplementacionVista;
 import org.p4.adc.Graficos.Vista.ImplementacionVista2;
 import org.p4.adc.Graficos.Vista.Vista;
 import org.p4.adc.Interfaces.Distance;
-
 import java.io.IOException;
 
 public class ImplementacionControlador implements Controlador{
