@@ -4,26 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9a3ed2b-d3dd-4b00-a858-116835af704a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="40c13cea-3325-4a5f-8944-ed550e4a073f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Controlador/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Controlador/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Clases/Kmeans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Clases/Kmeans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Clases/RecSys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Clases/RecSys.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Controlador/ImplementacionControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Controlador/ImplementacionControlador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Modelo/ImplementacionModelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Modelo/ImplementacionModelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Modelo/Modelo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/ImplementacionVista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/ImplementacionVista.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/ImplementacionVista2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/ImplementacionVista2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/p4/adc/Graficos/Vista/Vista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/pruebas.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/p4/adc/Clases/KNNTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/p4/adc/Clases/KNNTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/p4/adc/Clases/PlantillasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/p4/adc/Clases/PlantillasTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/css/pruebas.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Controlador/ImplementacionControlador.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Controlador/ImplementacionControlador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Modelo/ImplementacionModelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Modelo/ImplementacionModelo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Modelo/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Modelo/Modelo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Vista/ImplementacionVista.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Vista/ImplementacionVista.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Vista/ImplementacionVista2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/p4/adc/Graficos/Vista/ImplementacionVista2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +36,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2Pdxu41kYAVPZ4sA4PtTSpqAmwT" />
+  <component name="ProjectId" id="2Qe5Tc1zzVYzmOiM4CoeCoeXnNn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -60,12 +53,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d9a3ed2b-d3dd-4b00-a858-116835af704a" name="Changes" comment="" />
-      <created>1683800980403</created>
+      <changelist id="40c13cea-3325-4a5f-8944-ed550e4a073f" name="Changes" comment="" />
+      <created>1685701215698</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1683800980403</updated>
-      <workItem from="1683800981812" duration="9239000" />
+      <updated>1685701215698</updated>
+      <workItem from="1685701217217" duration="3086000" />
     </task>
     <servers />
   </component>

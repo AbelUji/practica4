@@ -38,8 +38,8 @@ public class ImplementacionVista2 implements Vista{
     }
     @Override
     public void prepararStage() {
-        stage.setTitle("Recommended titles");
-        stage.setScene(new Scene(root, 400, 400));
+        stage.setTitle("Recommended songs based on "+cancionElegida);
+        stage.setScene(new Scene(root, 430, 440));
     }
 
     public void crearNumRec() throws ClusterException, IOException {
@@ -56,12 +56,12 @@ public class ImplementacionVista2 implements Vista{
 
         spinner.valueProperty().addListener(((observableValue, integer, t1) -> {lista.setItems(FXCollections.observableArrayList(modelo.getRecsys().recommend(cancionElegida, spinner.getValue())));}));
         vNumRec= new HBox(label_rec_type, spinner);
+        vNumRec.setPadding(new Insets(6,0,0,0));
     }
 
     public void recomendadas(){
-        Label label_rec = new Label("If you liked '"+cancionElegida+"' you might like");
-        HBox hlabel_rec = new HBox(label_rec);
-        hlabel_rec.setPadding(new Insets(2,0,0,4));
+        HBox hlabel_rec = new HBox(new Label("If you liked '"+cancionElegida+"' you might like"));
+        hlabel_rec.setPadding(new Insets(15,0,0,4));
 
         vLista=new VBox(hlabel_rec,lista);
     }
@@ -73,7 +73,7 @@ public class ImplementacionVista2 implements Vista{
 
         boton.setStyle("-fx-text-fill: rgb(49, 89, 23);" + "-fx-border-color: rgb(49, 89, 23);" + "-fx-border-radius: 5;\n" + "-fx-padding: 3 6 6 6;");
         bot_aceptar=new VBox(boton);
-        bot_aceptar.setPadding(new Insets(10,0,5,0));
+        bot_aceptar.setPadding(new Insets(15,0,5,0));
         bot_aceptar.setAlignment(Pos.CENTER);
     }
 

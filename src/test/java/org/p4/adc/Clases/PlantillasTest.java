@@ -8,7 +8,6 @@ import org.p4.adc.Patrones.ManhattanDistance;
 
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

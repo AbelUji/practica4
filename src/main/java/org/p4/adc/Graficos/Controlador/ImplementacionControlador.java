@@ -19,7 +19,6 @@ public class ImplementacionControlador implements Controlador{
     @Override
     public void setModelo(Modelo modelo) {
         this.modelo=modelo;
-
     }
 
     @Override
@@ -34,6 +33,6 @@ public class ImplementacionControlador implements Controlador{
         vista.setControlador(this);
         modelo.setVista(vista);
         this.setModelo(modelo);
-        vista.crearStage();
+        modelo.gestionarStage();
     }
 }

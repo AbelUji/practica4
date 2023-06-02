@@ -54,7 +54,6 @@ public class RecSys {
 
     public int getGrupo(String cancion){
         int grupo=findName(cancion);
-        System.out.println(grupo);
         return this.grupos.get(grupo).size();
     }
 }

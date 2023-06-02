@@ -35,11 +35,10 @@ public class ImplementacionVista implements Vista{
     @Override
     public void prepararStage(){
         stage.setTitle("Song Recommender");
-        stage.setScene(new Scene(root, 400, 700));
+        stage.setScene(new Scene(root, 400, 660));
     }
     public void crearRecType(){
-        Label label_rec_type = new Label("Recommendation Type");
-        HBox hlabel_rec_type = new HBox(label_rec_type);
+        HBox hlabel_rec_type = new HBox(new Label("Recommendation Type"));
         hlabel_rec_type.setAlignment(Pos.BASELINE_LEFT);
         hlabel_rec_type.setPadding(new Insets(2,0,0,4));
         hlabel_rec_type.setStyle("-fx-font-size: 20px;" + "-fx-font-weight: bold;");
@@ -60,10 +59,9 @@ public class ImplementacionVista implements Vista{
     }
 
     public void crearDistType(){
-        Label label_dist_type = new Label("Distance Type");
-        HBox hlabel_dist_type = new HBox(label_dist_type);
+        HBox hlabel_dist_type = new HBox(new Label("Distance Type"));
         hlabel_dist_type.setAlignment(Pos.BASELINE_LEFT);
-        hlabel_dist_type.setPadding(new Insets(2,0,0,4));
+        hlabel_dist_type.setPadding(new Insets(9,0,0,4));
         hlabel_dist_type.setStyle("-fx-font-size: 20px;"+ "-fx-font-weight: bold;");
 
         ToggleGroup grupo = new ToggleGroup();
@@ -80,10 +78,9 @@ public class ImplementacionVista implements Vista{
     }
 
     public void crearListaCanciones() throws IOException {
-        Label label_title = new Label("Song Titles");
-        HBox hlabel_title = new HBox(label_title);
+        HBox hlabel_title = new HBox(new Label("Song Titles"));
         hlabel_title.setAlignment(Pos.BASELINE_LEFT);
-        hlabel_title.setPadding(new Insets(2,0,0,4));
+        hlabel_title.setPadding(new Insets(9,0,0,4));
         hlabel_title.setStyle("-fx-font-size: 20px;"+ "-fx-font-weight: bold;");
 
 
@@ -139,7 +136,7 @@ public class ImplementacionVista implements Vista{
         });
         boton.setStyle("-fx-text-fill: rgb(49, 89, 23);" + "-fx-border-color: rgb(49, 89, 23);" + "-fx-border-radius: 5;\n" + "-fx-padding: 3 6 6 6;");
         bot_aceptar=new VBox(boton);
-        bot_aceptar.setPadding(new Insets(10,0,0,0));
+        bot_aceptar.setPadding(new Insets(15,0,0,0));
         bot_aceptar.setAlignment(Pos.CENTER);
     }
     private String recomendacionElegida(){

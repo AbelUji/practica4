@@ -83,7 +83,7 @@ public class Kmeans implements Algorithm<Table>, DistanceClient {
         Random random=new Random(seed);
         for(int i=0;i<numClusters;i++){
             int numeroRandom=random.nextInt(tablaK.getRows().size()-1);
-            if(!centroides.contains(tablaK.getRowAt(numeroRandom))){//No puede meter la funcion random.nextInt dentro del getRowAt(no funciona)
+            if(!centroides.contains(tablaK.getRowAt(numeroRandom))){
                 centroides.add(tablaK.getRowAt(numeroRandom));
                 grupos.put(i,new ArrayList<>());
             }else{

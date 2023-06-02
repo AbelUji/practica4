@@ -28,7 +28,7 @@ public class ImplementacionModelo implements Modelo{
     @Override
     public void recSys(String method, Distance distancia) throws IOException, ClusterException {
         String sep = System.getProperty("file.separator");
-        String ruta = "src/main/resources/files";
+        String ruta = "src\\main\\resources\\files";
 
         // File names (could be provided as arguments to the constructor to be more general)
         Map<String,String> filenames = new HashMap<>();
@@ -61,9 +61,9 @@ public class ImplementacionModelo implements Modelo{
     }
 
     public List<String> anadirCanciones(String fichero) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(fichero));
         String line;
         List<String> names = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(fichero));
 
         while ((line = br.readLine()) != null) {
             names.add(line);
@@ -75,6 +75,10 @@ public class ImplementacionModelo implements Modelo{
     @Override
     public RecSys getRecsys(){
         return this.recsys;
+    }
+
+    public void gestionarStage() throws ClusterException, IOException {
+        vista.crearStage();
     }
 
 }

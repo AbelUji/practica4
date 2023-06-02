@@ -14,4 +14,5 @@ public interface Modelo {
     void recSys(String method, Distance distancia) throws IOException, ClusterException;
     RecSys getRecsys();
     List<String> anadirCanciones(String fichero) throws IOException;
+    void gestionarStage() throws ClusterException, IOException;
 }
